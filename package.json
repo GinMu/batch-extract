@@ -1,0 +1,39 @@
+{
+  "name": "batch-extract",
+  "version": "1.0.0",
+  "description": "Tiny tool for batch extracting, just for me.",
+  "main": "extract.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GinMu/batch-extract.git"
+  },
+  "keywords": [
+    "batch",
+    "extract",
+    "decompression",
+    "rar",
+    "zip"
+  ],
+  "author": "GinMu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GinMu/batch-extract/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "homepage": "https://github.com/GinMu/batch-extract#readme",
+  "dependencies": {
+    "commander": "^4.0.1"
+  },
+  "devDependencies": {
+    "husky": "^3.1.0",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1"
+  }
+}
