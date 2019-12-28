@@ -2,8 +2,8 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 	"os/exec"
 	"path"
@@ -51,7 +51,7 @@ func main() {
 		}
 		err := cmd.Run()
 		if err != nil {
-			log.Fatalf("cmd.Run() failed with %s\n", err)
+			fmt.Printf("%v", err)
 		}
 
 		childFiles, err1 := ioutil.ReadDir(folder)
