@@ -9,6 +9,7 @@ import (
 	"path"
 	"path/filepath"
 	"regexp"
+	"time"
 )
 
 func createDirIfNotExist(dir string) {
@@ -21,6 +22,8 @@ func createDirIfNotExist(dir string) {
 }
 
 func main() {
+
+	start := time.Now()
 
 	var src string
 	var dest string
@@ -51,9 +54,8 @@ func main() {
 		}
 		err := cmd.Run()
 		if err != nil {
-			fmt.Printf("%v", err)
+			fmt.Printf("%v\n", err)
 		}
-
 		childFiles, err1 := ioutil.ReadDir(folder)
 		if err1 != nil {
 			panic(err1)
@@ -74,4 +76,7 @@ func main() {
 
 		}
 	}
+	t := time.Now()
+	elapsed := t.Sub(start)
+	println(elapsed.Milliseconds())
 }

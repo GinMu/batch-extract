@@ -21,7 +21,8 @@ fs.readdir(source, "utf-8", function callback(err, files) {
 
   for (let i = 0; i < len; i++) {
     const file = files[i];
-    const absPath = source + file;
+    const absPath = path.join(source, file);
+
     const extname = path.extname(absPath);
     if (extname !== ".rar" && extname !== ".zip") {
       continue;
@@ -29,10 +30,10 @@ fs.readdir(source, "utf-8", function callback(err, files) {
     // 因为文件名包含三位数目录和其他汉字，所以获取三位数目录, 作为解压后目录
     const rename = file.match(/\d{3}/g)[0];
     const filename = rename + extname;
-    const destFile = `${destination + filename}`;
+    const destFile = path.join(destination, filename);
     try {
       let extractCmd;
-      const destFolder = `${destination + rename}`;
+      const destFolder = path.join(destination, rename);
       if (extname === ".rar") {
         extractCmd = `unrar e ${destFile} ${destFolder}`;
       } else {
